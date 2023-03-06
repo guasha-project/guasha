@@ -216,12 +216,12 @@ public:
         // The best chain should have at least this much work.
         // TODO.SUGAR.UPDATE
         // getblockhash 6513497 && "chainwork"
-        consensus.nMinimumChainWork = uint256S("00000000000000000000000000000000000000000000000000003f23ef34da28");
+        consensus.nMinimumChainWork = uint256S("0x00");
 
         // By default assume that the signatures in ancestors of this block are valid.
         // TODO.SUGAR.UPDATE
         // getblockhash 6513497 && "hash"
-        consensus.defaultAssumeValid = uint256S("855f0c66238bc0246c8ca25cf958283fd49b9fb4b217ddeb518e5ea9f5071b9e");
+        consensus.defaultAssumeValid = uint256S("0x00");
 
         /**
          * The message start string is designed to be unlikely to occur in normal data.
@@ -247,20 +247,17 @@ GenesisGenerator(genesis);
         // printf("genesis.hashMerkleRoot.MAIN %s\n",genesis.hashMerkleRoot.ToString().c_str());
         // printf("***\n");
 
-        assert(genesis.GetPoWHash() == uint256S("0031205acedcc69a9c18f79b84790179d68fb90588bedee6587ff701bdde04eb")); // genesis
-        assert(consensus.hashGenesisBlock == uint256S("7d5eaec2dbb75f99feadfa524c78b7cabc1d8c8204f79d4f3a83381b811b0adc")); // genesis
-        assert(genesis.hashMerkleRoot == uint256S("7677ce2a579cb0411d1c9e6b1e9072b8f537f1e59cb387dacac2daac56e150b0"));
+        assert(genesis.GetPoWHash() == uint256S("0x00")); // genesis
+        assert(consensus.hashGenesisBlock == uint256S("0x00")); // genesis
+        assert(genesis.hashMerkleRoot == uint256S("0x00"));
 
         // Note that of those which support the service bits prefix, most only support a subset of
         // possible options.
         // This is fine at runtime as we'll fall back to using them as a oneshot if they dont support the
         // service bits we want, but we should get them updated to support all service bits wanted by any
         // release ASAP to avoid it where possible.
-        vSeeds.emplace_back("1seed.sugarchain.info"); // cryptozeny
-        vSeeds.emplace_back("2seed.sugarchain.info"); // cryptozeny
-        vSeeds.emplace_back("seed.sugarchain.site"); // ROZ
-        vSeeds.emplace_back("seed.sugar.hel.lu"); // Hel
-
+        vSeeds.emplace_back("91.239.69.78:1974"); // 
+        
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,38);  // legacy: starting with S (upper)
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,68); // p2sh-segwit: starting with s (lower)
         base58Prefixes[SECRET_KEY] =     std::vector<unsigned char>(1,56);
@@ -277,15 +274,8 @@ GenesisGenerator(genesis);
 
         checkpointData = {
             {
-                {1, uint256S("ce8a0df339f2edceb99c5325c95b2b0ae752e29de1193f6113549f0e1cae7c91")},
-                {510, uint256S("f6f565e58812f89d8ea2aca296b9934ea82918f5bd443312af90b0be1465dbd1")},
-                {511, uint256S("ef160a17b4ecc855d00dd6ce051df72f1e690d91811b74c50751ada2e14c5f1a")},
-                {512, uint256S("094afbe86930e4950c601fde563cd2c7b9d050c1b567ad6fe48ae3b15a705ebb")},
-                {900000, uint256S("8a566a463925cf028cb427edb6d4d18a9c1213bf472d9032369c4e45449eb71c")},
-                {2601511, uint256S("e30af0fcf522354f43c3ab2cfb4805d175b1264608b6124eab0b635bdea2589d")}, // 2601511=2601001+510
-                {4422211, uint256S("1f4186606aaab3cb3818f073599602e573476da9fed0b65c9f14646210d6b18f")}, // 4422211=4421701+510
-                {6513497, uint256S("855f0c66238bc0246c8ca25cf958283fd49b9fb4b217ddeb518e5ea9f5071b9e")},
-                // TODO.SUGAR.UPDATE
+                {1, uint256S("0x00")}
+                
             }
         };
 

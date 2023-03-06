@@ -93,7 +93,7 @@ static CBlock CreateGenesisBlock(const char* pszTimestamp, const CScript& genesi
  */
 static CBlock CreateGenesisBlock(uint32_t nTime, uint32_t nNonce, uint32_t nBits, int32_t nVersion, const CAmount& genesisReward)
 {
-    const char* pszTimestamp = "The Times 17/July/2019 Bitcoin falls after senators call Facebook delusional over libra";
+    const char* pszTimestamp = "Scrutiny of major crypto institutions is intensifying The industry is calling this its “Dodd-Frank moment”| Feb 16th 2023 | WASHINGTON, DC";
     const CScript genesisOutputScript = CScript() << ParseHex("04678afdb0fe5548271967f1a67130b7105cd6a828e03909a67962e0ea1f61deb649f6bc3f4cef38c4f35504e51ec112de5c384df7ba0b8d578a4c702b6bf11d5f") << OP_CHECKSIG;
     return CreateGenesisBlock(pszTimestamp, genesisOutputScript, nTime, nNonce, nBits, nVersion, genesisReward);
 }
@@ -228,18 +228,18 @@ public:
          * The characters are rarely used upper ASCII, not valid as UTF-8, and produce
          * a large 32-bit integer with any alignment.
          */
-        pchMessageStart[0] = 0x9f;
-        pchMessageStart[1] = 0xeb;
-        pchMessageStart[2] = 0x4b;
-        pchMessageStart[3] = 0x9d;
-        nDefaultPort = 34230;
+        pchMessageStart[0] = 0xf7;
+        pchMessageStart[1] = 0x80;
+        pchMessageStart[2] = 0x3b;
+        pchMessageStart[3] = 0xa9;
+        nDefaultPort = 1974;
         nPruneAfterHeight = 100000;
 
         // nTime: date -d '2019-08-16 00:00:00 KST' +%s = 1565881200
         // genesisReward: pow(2,32) / COIN = 42.94967296 (was 50)
-        genesis = CreateGenesisBlock(1565881200, 247, 0x1f3fffff, 1, 42.94967296 * COIN);
+        genesis = CreateGenesisBlock(1676823559, 247, 0x1f3fffff, 1, 42.94967296 * COIN);
         consensus.hashGenesisBlock = genesis.GetHash();
-
+GenesisGenerator(genesis);
         // DEBUG - SUGAR
         // printf("***\n");
         // printf("genesis.GetPoWHash.MAIN = %s\n", genesis.GetPoWHash().ToString().c_str());
@@ -261,13 +261,13 @@ public:
         vSeeds.emplace_back("seed.sugarchain.site"); // ROZ
         vSeeds.emplace_back("seed.sugar.hel.lu"); // Hel
 
-        base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,63);  // legacy: starting with S (upper)
-        base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,125); // p2sh-segwit: starting with s (lower)
-        base58Prefixes[SECRET_KEY] =     std::vector<unsigned char>(1,128);
+        base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,38);  // legacy: starting with S (upper)
+        base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,68); // p2sh-segwit: starting with s (lower)
+        base58Prefixes[SECRET_KEY] =     std::vector<unsigned char>(1,56);
         base58Prefixes[EXT_PUBLIC_KEY] = {0x04, 0x88, 0xB2, 0x1E};
         base58Prefixes[EXT_SECRET_KEY] = {0x04, 0x88, 0xAD, 0xE4};
 
-        bech32_hrp = "sugar";   // bech32: starting with sugar1q
+        bech32_hrp = "gua";   // bech32: starting with sugar1q
 
         vFixedSeeds = std::vector<SeedSpec6>(pnSeed6_main, pnSeed6_main + ARRAYLEN(pnSeed6_main));
 
@@ -407,16 +407,16 @@ public:
         // getblockhash 4000000 && "hash" (testnet)
         consensus.defaultAssumeValid = uint256S("bc05c2d5e81785f287cd58a798b64467cff35c8ef2bbe8062d8420eeb86f4056");
 
-        pchMessageStart[0] = 0xb0;
+        pchMessageStart[0] = 0x0b;
         pchMessageStart[1] = 0x11;
-        pchMessageStart[2] = 0x90;
-        pchMessageStart[3] = 0x70;
-        nDefaultPort = 44230;
+        pchMessageStart[2] = 0x09;
+        pchMessageStart[3] = 0x07;
+        nDefaultPort = 1975;
         nPruneAfterHeight = 1000;
 
         // nTime: date -d '2019-08-16 00:00:01 UTC' +%s = 1565913601
         // genesisReward: pow(2,32) / COIN = 42.94967296 (was 50)
-        genesis = CreateGenesisBlock(1565913601, 490, 0x1f3fffff, 1, 42.94967296 * COIN);
+        genesis = CreateGenesisBlock(1676823560, 490, 0x1f3fffff, 1, 42.94967296 * COIN);
         consensus.hashGenesisBlock = genesis.GetHash();
 
         // DEBUG - SUGAR
